@@ -1,0 +1,434 @@
+DROP TABLE EMP;
+DROP TABLE DEPT;
+
+
+CREATE TABLE DEPT
+(
+	DEPTNO NUMERIC(2) CONSTRAINT DEPTNO_DEPT_PK PRIMARY KEY,
+	DNAME VARCHAR(14),
+	LOC VARCHAR(13)
+);
+
+INSERT INTO DEPT VALUES (10,'ACCOUNTING','NEW YORK');
+INSERT INTO DEPT VALUES (20,'RESEARCH','DALLAS');
+INSERT INTO DEPT VALUES (30,'SALES','CHICAGO');
+INSERT INTO DEPT VALUES (40,'OPERATIONS','BOSTON');
+
+
+CREATE TABLE EMP
+(
+	 EMPNO NUMERIC(4) CONSTRAINT EMPNO_EMP_PK PRIMARY KEY,
+	 ENAME VARCHAR(10),
+	 JOB   VARCHAR(9),
+	 MGR   NUMERIC(4), 
+	 HIREDATE DATE,
+	 SAL NUMERIC(7,2),        
+	 COMM NUMERIC(7,2),        
+	 DEPTNO NUMERIC(2) CONSTRAINT DEPTNO_DEPT_FK REFERENCES DEPT(DEPTNO)      
+);
+
+INSERT INTO EMP VALUES (7369,	'SMITH',	'CLERK',	7902,	'17-DEC-80',	800,	NULL,	20);
+INSERT INTO EMP VALUES (7499,	'ALLEN',	'SALESMAN',	7698,	'20-FEB-81',	1600,	300,	30);
+INSERT INTO EMP VALUES (7521,	'WARD',		'SALESMAN',	7698,	'22-FEB-81',	1250,	500,	30);
+INSERT INTO EMP VALUES (7566,	'JONES',	'MANAGER',	7839,	'02-APR-81',	2975,	NULL,	20);
+INSERT INTO EMP VALUES (7654,	'MARTIN',	'SALESMAN',	7698,	'28-SEP-81',	1250,	1400,	30);
+INSERT INTO EMP VALUES (7698,	'BLAKE',	'MANAGER',	7839,	'01-MAY-81',	2850,	NULL,	30);
+INSERT INTO EMP VALUES (7782,	'CLARK',	'MANAGER',	7839,	'09-JUN-81',	2450,	NULL,	10);
+INSERT INTO EMP VALUES (7788,	'SCOTT',	'ANALYST',	7566,	'19-APR-87',	3000,	NULL,	20);
+INSERT INTO EMP VALUES (7839,	'KING',		'PRESIDENT',	NULL,	'17-NOV-81',	5000,	NULL,	10);
+INSERT INTO EMP VALUES (7844,	'TURNER',	'SALESMAN',	7698,	'08-SEP-81',	1500,	0,	30);
+INSERT INTO EMP VALUES (7876,	'ADAMS',	'CLERK',	7788,	'23-MAY-87',	1100,	NULL,	20);
+INSERT INTO EMP VALUES (7900,	'JAMES',	'CLERK',	7698,	'03-DEC-81',	950,	NULL,	30);
+INSERT INTO EMP VALUES (7902,	'FORD',		'ANALYST',	7566,	'03-DEC-81',	3000,	NULL,	20);
+INSERT INTO EMP VALUES (7934,	'MILLER',	'CLERK',	7782,	'23-JAN-82',	1300,	NULL,	10);
+
+commit; 
+
+
+
+
+
+
+
+
+
+
+1) Select Queries
+1. Display all departments from department table.
+2. Display all employees from employee table.
+3. Select the employee in department 30.
+4. List the names, numbers and departmentno of all clerks.
+5. Find the depart numbers and the name of employee of all dept with Deptno greater or equal to 20.
+6. Find the employees whose commission is greater than their salary.
+7. Find the employees whose commission is greater than 60 percent of their salary.
+8. Find the employee whose commission is greater than 50 percent of their salary.
+9. List the name, job and salary of all employees in dept 20 who earn more than 2000.
+10. Find all salesmen in dept 30 whose salary is greater than or equal to Rs. 1500.
+11. Find all the employees whose job is either a president or manager.
+12. Find all managers who are not in dept 30.
+13. Find the details of all managers and clerks in dept 10.
+14. Find the details of all manager (in any dept) and all clerks in dept 10
+15. Find the details of all managers in dept 10 and all clerks in dept 20.
+16. Find all employees who are neither clerks nor manager but whose salary is greater than or equal to Rs. 2000.
+17. Find the employees who earns between Rs. 1200 and Rs.1400.
+18. Find the employees who are clerks, analysts or salesman.
+19. Find the employees who are not clerks, analyst or salesman.
+20. Find the employees who do not receive a commission i.e. commission is NULL.
+21. Find the employee whose commission is Rs. 0.
+22. Find the different jobs of the employees receiving commission.
+23. Find all employees who do not receive a commission or whose Commission is less than Rs. 100.
+24. The employees who not receiving commission are entailed to Rs. 250, Show the net earnings of all employees. (find about nvl() )
+25. Find all employees whose total earnings are greater than Rs. 2000.
+26. Find all employees whose names begin with m.
+27. Find all employees whose names end with m.
+28. Find all employees whose names contain the letter m.
+29. Find the employees whose names are 5 characters long and end with n.
+30. Find the employees who have the letter r as the third letter in their name.
+SQL Queries
+Page 2 of 3
+2) Numeric, Character & Date Function
+31. Find all employees hired in month of February (of any year).
+32. Find all employees who were hired on the last day of the month.
+33. Find the employees who were hired more than 12 years ago.
+34. Find the managers hired in the year 2007.
+35. Display the names and the jobs of all employees, separated by ','(comma). For example (smith, clerk).
+36. Display the names of all employees with the initial letter only in capitals.
+37. Display the names of all employees, right aligning them to 15 characters.
+38. Display the names of all employees, padding them to right up-to 15 characters with '-'.
+39. Display the length of the name of all employees.
+40. Display the names of all employees centering them with 20 characters.
+41. Display the names of all employees without any leading 'a'.
+42. Display the names of all employees without any trailing 'r'.
+43. Show the first three characters of the names of all employees.
+44. Show the last three characters of the names of all employees.
+45. Display the names of all employees replacing any 'a' with 'e'.
+46. Display the names of all employees and the position at which the string 'ar' occurs in the name.
+47. Show the salary of all employees rounding it to the nearest Rs. 1000. For example (3790 will be 4000)
+48. Show the daily salary of all employees assuming a month has 30 days.
+49. Display the name of all employees, and their bonus. Assume each Employee gets a bonus of 20 percent of his salary subject to the Maximum of Rs. 500.
+50. Display the name of all employees, and their bonus. Assume each employee gets a bonus of 20 percent of his salary subject to the Maximum of Rs. 200.
+51. For each employee display the number of days passed since the employee joined the company.
+52. For each employee display the number of months passed since the Employee joined the company.
+53. Display the tenure of service in the years, months and days for all Employees in character format. Assume every month has 30 days.
+54. Display the employee details in the following manner. 'Miler joined on the twenty-third of January of the year nineteen hundred and eighty Two'.
+SQL Queries
+Page 3 of 3
+3) Ordering by Queries
+55. Display the details of all employees, sorted on the names.
+56. Display the name of all employees, based on their tenure, with the oldest employee coming first.
+57. Display the names, job and salary of all employees sorted on jobs and Salary.
+58. Display the names, job and salary of all employees, sorted on jobs and within job, sorted on the descending order of salary.
+59. Display the names, job and salary of all employees, sorted on Descending order of job and within job, sorted on the descending order of salary.
+60. Display the name, month and year of all employees, sorted on the month of their hire date irrespective of the year.
+61. Display the name, month and year of joining of all employees, sorted on the month of their hire date, and within that on the year, with the earliest year appearing first.
+
+
+
+
+
+
+Complex Queries
+Page 1 of 4
+1) WRITE A SQL STATEMENT TO DISPLAY THE LOWEST PAID EMPLOYEE'S (NAME , SALARY , DEPARTMENT NAME)
+ENAME SAL DNAME
+SMITH
+800
+RESEARCH
+2) LIST MINIMUM SALARY FOR EACH DEPARTMENT
+DEPTNO MIN(SAL)
+10
+1300
+20
+800
+30
+950
+3) WRITE A QUERY BASED ON FOLLOWING RESULT.
+EMPNO ENAME JOB SAL DEPTNO DNAME
+7369
+SMITH
+CLERK
+800
+20
+RESEARCH
+7900
+JAMES
+CLERK
+950
+30
+SALES
+7934
+MILLER
+CLERK
+1300
+10
+ACCOUNTING
+4) LIST ALL THE EMPLOYEES WHO ARE WORKING IN FORD’S DEPARTMENT.
+EMPNO ENAME JOB MGR HIREDATE SAL DEPTNO
+7369
+SMITH
+CLERK
+7902
+17-Dec-00
+800
+20
+7566
+JONES
+MANAGER
+7839
+02-Apr-01
+2975
+20
+7788
+SCOTT
+ANALYST
+7566
+19-Apr-07
+3000
+20
+7876
+ADAMS
+CLERK
+7788
+23-May-07
+1100
+20
+7902
+FORD
+ANALYST
+7566
+03-Dec-01
+3000
+20
+5) LIST ALL EMPLOYEE WHO ARE WORKING IN WARD'S DEPARTMENT AND
+EARNING MORE THEN MARTIN
+EMPNO ENAME JOB MGR HIREDATE SAL DEPTNO
+7369
+SMITH
+CLERK
+7902
+17-Dec-00
+800
+20
+7566
+JONES
+MANAGER
+7839
+02-Apr-01
+2975
+20
+7788
+SCOTT
+ANALYST
+7566
+19-Apr-07
+3000
+20
+Complex Queries
+Page 2 of 4
+6) DISPLAY EMPLOYEE NUMBER, NAME,DEPT NUMBER, DEPT NAME, AND LOCATION
+EMPNO ENAME DEPTNO DNAME LOC
+7369
+SMITH
+20
+RESEARCH
+DALLAS
+7499
+ALLEN
+30
+SALES
+CHICAGO
+7521
+WARD
+30
+SALES
+CHICAGO
+7566
+JONES
+20
+RESEARCH
+DALLAS
+7654
+MARTIN
+30
+SALES
+CHICAGO
+7698
+BLAKE
+30
+SALES
+CHICAGO
+7782
+CLARK
+10
+ACCOUNTING
+NEW YORK
+7788
+SCOTT
+20
+RESEARCH
+DALLAS
+7839
+KING
+10
+ACCOUNTING
+NEW YORK
+7844
+TURNER
+30
+SALES
+CHICAGO
+7876
+ADAMS
+20
+RESEARCH
+DALLAS
+7900
+JAMES
+30
+SALES
+CHICAGO
+7902
+FORD
+20
+RESEARCH
+DALLAS
+7934
+MILLER
+10
+ACCOUNTING
+NEW YORK
+7) DISPLAY THE FOLLOWING RESULT
+DEPTNO DNAME ENAME
+10
+ACCOUNTING
+CLARK
+10
+ACCOUNTING
+KING
+10
+ACCOUNTING
+MILLER
+20
+RESEARCH
+JONES
+20
+RESEARCH
+FORD
+20
+RESEARCH
+ADAMS
+20
+RESEARCH
+SMITH
+20
+RESEARCH
+SCOTT
+30
+SALES
+WARD
+30
+SALES
+TURNER
+30
+SALES
+ALLEN
+30
+SALES
+JAMES
+30
+SALES
+BLAKE
+30
+SALES
+MARTIN
+Complex Queries
+Page 3 of 4
+8) LIST ALL THE EMPLOYEE WHO ARE WORKING IN NEW YORK
+ENAME DEPTNO DNAME LOC
+CLARK
+10
+ACCOUNTING
+NEW YORK
+KING
+10
+ACCOUNTING
+NEW YORK
+MILLER
+10
+ACCOUNTING
+NEW YORK
+9) WRITE A SQL STATEMENT TO DISPLAY THE LOWEST PAID EMPLOYEE'S (NAME , SALARY , DEPARTMENT NAME) IN THE RESPECTIVE DEPARTMENT.
+ENAME MIN(SAL) DNAME
+SMITH
+800
+RESEARCH
+JAMES
+950
+SALES
+MILLER
+1300
+ACCOUNTING
+10) WRITE A SQL STATEMENT TO DISPLAY THE HIGHEST PAID EMPLOYEE'S (NAME, JOB, MANAGER NAME, SALARY AND DEPARTMENT NAME AND DEPARTMENT NO.) IN THE RESPECTIVE DEPARTMENT.
+EMPNO JOB MGR MAX(SAL) DNAME
+7698
+MANAGER
+7839
+2850
+SALES
+7788
+ANALYST
+7566
+3000
+RESEARCH
+7839
+PRESIDENT
+5000
+ACCOUNTING
+7902
+ANALYST
+7566
+3000
+RESEARCH
+11) WRITE A SQL STATEMENT TO DISPLAY THE EMPLOYEE NAME (BOSS) AND NUMBER OF EMPLOYEE (SUBORDINATES) DIRECTLY REPORTING TO HIM?
+BOSS SUBORDINATES
+JONES
+2
+FORD
+1
+CLARK
+1
+SCOTT
+1
+BLAKE
+5
+KING
+3
+12) DISPLAY THE NAMES, DESIGNATION AND SALARIES OF ALL EMPLOYEES WHO HAVE MANAGER ALONG WITH MANAGER'S NAME, DESIGNATION AND MANAGER'S SALARY.
+(SELF-JOIN)
+Complex Queries
+Page 4 of 4
+13) CREATE THE FOLLOWING TABLES:
+ORDER: {ID, ORDERDATE, ORDERNUMBER}
+ORDER_ITEM: {ID, ORDERID, PRODUCTID, UNITPRICE, QUANTITY}
+PRODUCT: {ID, PRODUCTNAME}
+WRITE A QUERY TO DISPLAY THE FOLLOWING OUTPUT SORTED BY ORDER NO:
+ORDER_NO ORDER_DATE PRODUCT_NAME QUANTITY UNIT_PRICE
+7369
+7/4/2012 12:00:00 AM
+EASY-TRADING
+800
+20
+7900
+2/10/2011 12:00:00 AM
+BANK-ANYWHERE
+950
+30
+7934
+9/23/2015 12:00:00 AM
+TRIP-MANAGER
+1300
+10
+14) FIND THE 2ND MINIMUM SALARY OF THE EMPLOYEE.
+15) FIND THE MAX 3 SALARIES FROM EMPLOYEE TABLE.
+16) DISPLAY COMMON RECORDS FROM EMP_1 & EMP_2 TABLES. (USE INTERSECT)
+17) DISPLAY DEPARTMENT NO WISE TOTAL SALARY WHERE MORE THAN 2 EMPLOYEES EXIST IN A DEPARTMENT.
