@@ -1,0 +1,6 @@
+Spring Security
+
+https://www.youtube.com/watch?v=4x-HgnJ31cg
+
+Spring Security with Mongodb database
+https://www.youtube.com/watch?v=gJSOzcYgcuY
