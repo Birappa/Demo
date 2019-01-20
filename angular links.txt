@@ -1,0 +1,7 @@
+https://coursetro.com/posts/code/171/Angular-7-Tutorial---Learn-Angular-7-by-Example
+
+https://medium.com/@hamedbaatour/build-a-real-world-beautiful-web-app-with-angular-6-a-to-z-ultimate-guide-2018-part-i-e121dd1d55e
+
+https://www.devglan.com/angular/angular-7-crud-example
+
+https://loiane.com/2017/08/how-to-add-bootstrap-to-an-angular-cli-project/
